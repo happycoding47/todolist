@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y-_w!d#*_qr_h)=1n1)w+vmgxp4k64(os^lo9no43z10ct&!x6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['pacific-cliffs-01647.herokuapp.com']
 
@@ -129,3 +129,7 @@ LOGIN_URL = '/login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+try:
+    from .local_settings import *
+except ImportError:
+    print("You are on production!")
